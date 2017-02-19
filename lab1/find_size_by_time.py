@@ -3,7 +3,7 @@ import getopt
 import commands
 
 
-__name__ == '__main__':
+if __name__ == '__main__':
 	options, _ = getopt.getopt(sys.argv[1:], 't:p:', ['time=', 'program='])
 
 	for opt, arg in options:
