@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
 	with open('seq.csv', 'w+') as seq_file:
 		for pntr in range(n1, n2+1, delta):
-			seq_file.write("{pntr},{result}\n".format(pntr=pntr,result=int(commands.getstatusoutput("./lab1-seq {size}".format(pntr))[1])))
+			seq_file.write("{pntr},{result}\n".format(pntr=pntr,result=int(commands.getstatusoutput("./lab1-seq {size}".format(size=pntr))[1])))
 	
 	for i in range(2,12):
 		with open('par{num}.csv'.format(num=i), 'w+') as par_file:
