@@ -2,20 +2,22 @@ import sys
 import getopt
 import commands
 
-options, _ = getopt.getopt(sys.argv[1:], 't:p:', ['time=', 'program='])
 
-for opt, arg in options:
-	if opt in ('-t', '--time'):
-        	time = arg
-    	elif opt in ('-p', '--program'):
-        	program_name = arg
+__name__ == '__main__':
+	options, _ = getopt.getopt(sys.argv[1:], 't:p:', ['time=', 'program='])
 
-i = 0
-while True:
-	i += 500
-	if int(commands.getstatusoutput("./{name} {size}".format(name=program_name, size=i))[1]) >= int(time):
-		print i
-		break
+	for opt, arg in options:
+		if opt in ('-t', '--time'):
+        		time = arg
+    		elif opt in ('-p', '--program'):
+        		program_name = arg
 
-sys.exit(0)
+	i = 0
+	while True:
+		i += 500
+		if int(commands.getstatusoutput("./{name} {size}".format(name=program_name, size=i))[1]) >= int(time):
+			print i
+			break
+
+	sys.exit(0)
 
