@@ -12,8 +12,8 @@ for opt, arg in options:
 
 i = 0
 while True:
-	i += 100
-	if int(commands.getstatusoutput("/home/tikhoa/lab1/{name} {size}".format(name=program_name, size=i))[1]) >= int(time):
+	i += 500
+	if int(commands.getstatusoutput("./{name} {size}".format(name=program_name, size=i))[1]) >= int(time):
 		print i
 		break
 
