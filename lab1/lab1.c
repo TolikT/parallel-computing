@@ -33,13 +33,14 @@ float* generate(size_t size, unsigned int min, unsigned int max)
 {
 	float *arr = malloc(sizeof(float) * size);
 	unsigned int seed = SEED;
+	int i;
 
-	for (int i = 0; i < size; i++)
+	for (i = 0; i < size; i++)
 	{
 		arr[i] = ((float) (rand_r(&seed)%(100*(max-min)))/100) + min;
 	}
 
-	/*for(int i = 0; i < size; i++) 
+	/*for(i = 0; i < size; i++) 
 	{
 		printf("arr[%d] = %f\n", i, arr[i]);
 	}*/	 
@@ -49,12 +50,13 @@ float* generate(size_t size, unsigned int min, unsigned int max)
 
 int map(float *arr_m1, size_t size1, float *arr_m2, size_t size2)
 {
-	for (int i = 0; i < size1; i++)
+	int i;
+	for (i = 0; i < size1; i++)
 	{
 		arr_m1[i] = pow((arr_m1[i] / M_PI), 3);
 	}
 	
-	for (int i = 1; i < size2; i++)
+	for (i = 1; i < size2; i++)
 	{
 		arr_m2[i] = abs(tan(arr_m2[i] + arr_m2[i-1])); 
 	}
@@ -64,7 +66,8 @@ int map(float *arr_m1, size_t size1, float *arr_m2, size_t size2)
 
 int merge(float *arr_m1, float *arr_m2, size_t size2)
 {
-	for (int i = 0; i < size2; i++)
+	int i;
+	for (i = 0; i < size2; i++)
 	{
 		arr_m2[i] = pow(arr_m1[i], arr_m2[i]); 
 	}
