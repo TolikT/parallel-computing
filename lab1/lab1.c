@@ -109,7 +109,7 @@ int main(int argc, char *argv[])
 		n = atoi(argv[1]); /* инициализировать число N первым параметром командной строки */
 	else n = 20;
 
-	for (i = 0; i < 100; ++i) {
+	for (i = 0; i < 10; ++i) {
 		gettimeofday(&T1, NULL); /* запомнить текущее время T1 */
 		arr_m1 = generate(n, 1, A);
 		arr_m2 = generate(n/2, A, 10*A);
@@ -120,6 +120,8 @@ int main(int argc, char *argv[])
 		gettimeofday(&T2, NULL); /* запомнить текущее время T2 */
 		time_ms = 1000 * (T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec) / 1000;
 		if ((minimal_time_ms == -1) || (time_ms < minimal_time_ms)) minimal_time_ms = time_ms;
+		free(arr_m1);
+		free(arr_m2);
 	}
 	
 	printf("%f\n", x);
