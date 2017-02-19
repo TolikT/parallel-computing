@@ -14,8 +14,8 @@ if __name__ == '__main__':
 
 	i = 0
 	while True:
-		i += 1000
-		if int(commands.getstatusoutput("./{name} {size}".format(name=program_name, size=i))[1]) >= int(time):
+		i += 20000
+		if int(commands.getstatusoutput("./{name} {size}".format(name=program_name, size=i))[1].split('\n')[-1]) >= int(time):
 			print i
 			break
 

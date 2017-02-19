@@ -117,11 +117,13 @@ int main(int argc, char *argv[])
 		map(arr_m1, n, arr_m2, n/2);
 		merge(arr_m1, arr_m2, n/2);
 		gnome_sort(arr_m2, n/2);
+		reduce(arr_m2, n/2);
 		gettimeofday(&T2, NULL); /* запомнить текущее время T2 */
 		time_ms = 1000 * (T2.tv_sec - T1.tv_sec) + (T2.tv_usec - T1.tv_usec) / 1000;
 		if ((minimal_time_ms == -1) || (time_ms < minimal_time_ms)) minimal_time_ms = time_ms;
 	}
-
+	
+	printf("%f\n", reduce(arr_m2, n/2));
 	printf("%ld\n", minimal_time_ms); /* затраченное время */
 
 	return 0;
