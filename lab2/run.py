@@ -11,10 +11,10 @@ if __name__ == '__main__':
 	n2 = 200000
 	delta = int((n2 - n1) / 10)
 	
-	for i in range(0,11):
-		with open('lab2-par{num}.csv'.format(num=2**i), 'w+') as par_file:
+	for i in range(3,4):
+		with open('lab2-par{num}.csv'.format(num=i), 'w+') as par_file:
 			for pntr in range(n1, n2+1, delta):
-				par_file.write("{pntr},{result}\n".format(pntr=pntr,result=int(commands.getstatusoutput("./lab2-seq {n} {m}".format(n=pntr, m=2**i))[1].split("\n")[-1])))
+				par_file.write("{pntr},{result}\n".format(pntr=pntr,result=int(commands.getstatusoutput("./lab2-seq {n} {m}".format(n=pntr, m=i))[1].split("\n")[-1])))
 
 				par_file.flush()
 	sys.exit(0)
