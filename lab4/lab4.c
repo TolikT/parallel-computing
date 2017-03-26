@@ -211,7 +211,7 @@ int main(int argc, char *argv[])
 	{
 #pragma omp section
 		{
-			for (i = 0; i < 5; ++i) {
+			for (i = 0; i < 10; ++i) {
 				start_time = omp_get_wtime();
 
 				arr_m1 = generate(n, 1, A);
